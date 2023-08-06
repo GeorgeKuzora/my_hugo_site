@@ -1,0 +1,8 @@
+#!/bin/bash
+
+# Use from hugo site root
+#
+hugo
+rclone purge timeweb:public_html/
+rclone sync public/ timeweb:public_html/
+# hugo --gc --minify && rclone sync public/ timeweb:public_html/
