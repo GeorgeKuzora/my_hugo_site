@@ -1,6 +1,6 @@
 baseURL = 'http://georgiykuzora.ru/'
 languageCode = 'ru-RU'
-title = 'Georgiy Kuzora'
+title = 'Георгий Кузора'
 theme = "hugo-theme-cleanwhite"
 copyright = "Georgiy Kuzora ©"
 # Enable comments by entering your Disqus shortname
@@ -16,10 +16,10 @@ home = ["HTML", "RSS"]
 
 [params]
   header_image = "img/fog_forest.jpg"
-  SEOTitle = "Георгий Кузора | Georgiy Kuzora"
+  SEOTitle = "Georgiy Kuzora"
   description = "Личный блог"
   keyword = "Software, Python, Coding, Languages, Japanese"
-  slogan = "Место для моего вдохновения"
+  slogan = "Не было в нем непоседливости и метаний, он проводил время в одних и тех же местах и занятиях"
 
   image_404 = "img/404-bg.jpg"
   title_404 = "Page not found :("
@@ -68,6 +68,8 @@ home = ["HTML", "RSS"]
   #custom_css = ["css/lightbox.css", "https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css", "css/main.css"]
   #custom_js = ["js/lightbox.js", "https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js", "js/main.js"]
 
+  [params.meta]
+  favicon        = true
   [params.social]
   rss            = true
   email          = "georgiy@kuzora.ru"
