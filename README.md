@@ -1,6 +1,6 @@
 # Проект личного сайта
 
-[Мой персональный сайт](content/post/personal-site-project/mysite.webp)
+![Мой персональный сайт](content/post/personal-site-project/mysite.webp)
 
 ## Общая информация
 
