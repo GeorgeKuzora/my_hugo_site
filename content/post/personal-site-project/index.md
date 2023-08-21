@@ -1,11 +1,21 @@
-# Проект личного сайта
+---
+title:       "Проект персонального сайта"
+subtitle:    ""
+description: "Проект персонального сайта с блогом, портфолио и страницей автора."
+date:        2023-08-21T16:58:06+03:00
+author:      "Георгий Кузора"
+image:       "img/web.webp"
+tags:        ["Web", "Hugo", "HTML", "CSS"]
+categories:  ["Projects"]
+draft:       false
+---
 
-[Мой персональный сайт](content/post/personal-site-project/mysite.webp)
+![Мой сайт](mysite.webp)
 
 ## Общая информация
 
-Сайт размещен по адресу - [Georgiy Kuzora](https://georgiykuzora.ru/)
-Страница описания проекта - [Описание проекта](https://georgiykuzora.ru/post/personal-site-project/)
+- Сайт размещен по адресу - [Georgiy Kuzora](https://georgiykuzora.ru/)
+- GitHub страница проекта - [My site created with Hugo](https://github.com/GeorgeKuzora/my_hugo_site)
 
 Это проект личного сайта. Сайт включает:
 
@@ -23,14 +33,4 @@
 
 Сайт размещен на виртуальном хостинге компании [Timeweb](https://timeweb.com/ru/). В планах переместить сайт на VPS сервер.
 
-Для публикации контента я использую `rclole` и технологию `sftp`. Ниже короткий скрипт для обновления содержания сайта:
-
-```shell
-#!/bin/bash
-
-# Use from hugo site root
-
-hugo
-rclone purge timeweb:public_html/
-rclone sync public/ timeweb:public_html/
-```
+Для публикации контента я использую `rclole` и технологию `sftp`.
