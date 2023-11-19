@@ -1,8 +1,6 @@
 #!/bin/bash
 
 # Use from hugo site root
-#
-hugo
-rclone purge timeweb:public_html/
-rclone sync public/ timeweb:public_html/
-# hugo --gc --minify && rclone sync public/ timeweb:public_html/
+
+hugo && \
+rsync -rva --delete public/ cc64867@georgiykuzora.ru:/home/c/cc64867/public_html/
