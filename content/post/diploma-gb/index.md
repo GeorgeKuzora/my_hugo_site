@@ -875,7 +875,168 @@ api
 
 Структура директории `api/v1/` повторяет структуру приложений Django, содержит директории `autoservice`, `orders`, `users`, `autoservice`. В основных директориях размещены `tests/`, где хранятся тесты представлений, относящихся к конкретной области API. В `core/` находятся представления, которые нельзя отнести к определенному приложению, а также вспомогательные функции, такие как валидаторы данных.
 
-### Фреймворк аутентификации и работа с пользователем
+### API документация
+
+В проекте доступны несколько вариантов API-документации, созданных с помощью библиотек для генерации:
+
+- Django Rest Framework Self describing APIs позволяет сделать API полностью самоописывающимся. Просмотр документации по каждой конечной точке возможен через браузер, просто посетив URL.
+- SwaggerUI реализован через библиотеку drf-spectacular.
+- ReDoc также реализован через drf-spectacular.
+
+> Swagger UI - это интерфейс, который используется для просмотра и документации API. Он позволяет разработчикам просматривать описание API, примеры запросов и ответов, а также тестировать API без необходимости написания кода. Swagger UI обычно используется в сочетании с генератором документации OpenAPI (ранее известным как Swagger), который автоматически генерирует документацию API на основе определений, представленных в файле спецификации OpenAPI. Swagger UI предоставляет удобный пользовательский интерфейс для взаимодействия с API, что упрощает процесс разработки и интеграции.
+
+> ReDoc - это инструмент для генерации документации к API, который использует формат OpenAPI (ранее известный как Swagger). Он позволяет разработчикам создавать легко читаемую и удобную документацию для своих API, которая может быть использована другими разработчиками для интеграции с их приложениями. ReDoc предоставляет интерактивный интерфейс для просмотра и тестирования API, а также поддерживает различные форматы и стили отображения документации.
+
+#### Django Rest Framework Self describing APIs
+
+Для открытия страницы с документацией API, откройте в браузере: https://find-car-service.ru/api/v1/autoservice/.
+
+![Страница документации API](img/django_api.png)
+
+Заголовок в API для просмотра генерируется из имени класса представления или функции. Все суффиксы `View` или `ViewSet` удаляются, а строка разделяется пробелами на границах прописных/строчных букв или подчеркивания.
+
+```python
+class AutoServiceViewSet(
+    viewsets.GenericViewSet, mixins.ListModelMixin, mixins.RetrieveModelMixin
+):
+    """ViewSet для получения списка автосервисов.
+    param: latitude.
+    """
+    ...
+```
+
+Например, представление `AutoServiceViewSet` будет названо `Auto service List` в просматриваемом API.
+
+При работе с наборами представлений, к каждому сгенерированному представлению добавляется соответствующий суффикс. Например, набор представлений `AutoServiceViewSet` будет генерировать представления с именами `Auto Service List` и `Auto Service Instance`.
+
+Описание в просматриваемом API генерируется из docstring представления или набора представлений.
+
+#### SwaggerUI
+
+Swagger UI реализован через библиотеку drf-spectacular.
+
+![SwaggerUI](img/swaggerui.png)
+
+Для открытия документации в стиле Swagger UI нужно перейти на веб-страницу: [https://find-car-service.ru/swagger/](https://find-car-service.ru/swagger/).
+
+Чтобы настроить Swagger UI, нужно установить библиотеки drf-spectacular и drf-spectacular-sidecar. Затем добавить их в настройки Django:
+
+```python
+INSTALLED_APPS = [
+    'drf_spectacular',
+    'drf_spectacular_sidecar',
+    ...
+]
+```
+
+Затем прописать соответствующие пути в `urls.py`:
+
+```python
+router = DefaultRouter()
+
+
+urlpatterns = [
+    path('admin/', admin.site.urls),
+    path('api/', include('api.urls', namespace='api')),
+    # пути для Swagger UI
+    path('api/schema/', SpectacularAPIView.as_view(), name='schema'),
+    path('swagger/', SpectacularSwaggerView.as_view(url_name='schema'), name='swagger-ui'),
+    # Объединенный путь для ReDoc
+    path('redoc/', SpectacularRedocView.as_view(url_name='schema'), name='redoc-doc'),
+
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+# Add auto generated OpenApi schema
+schema_view = get_schema_view(
+   openapi.Info(
+      title="Car-service API",
+      default_version='v1',
+      description="Документация для API сервиса car-service",
+      contact=openapi.Contact(email="admin@admin.ru"),
+      license=openapi.License(name="MIT License"),
+   ),
+   public=True,
+   permission_classes=[permissions.AllowAny, ],
+)
+
+urlpatterns += [
+   url(r'^swagger(?P<format>\.json|\.yaml)$',
+       schema_view.without_ui(cache_timeout=0), name='schema-json'),
+   url(r'^swagger/$', schema_view.with_ui('swagger', cache_timeout=0),
+       name='schema-swagger-ui'),
+   url(r'^redoc/$', schema_view.with_ui('redoc', cache_timeout=0),
+       name='schema-redoc'),
+]
+```
+
+Для настройки метаданных библиотеки `drf-spectacular` нужно создать словарь `SPECTACULAR_SETTINGS` в `settings.py` и переопределить значения по умолчанию.
+
+```python
+SPECTACULAR_SETTINGS = {
+    #настройки для хоста закомментированы
+    'TITLE': 'Find Car Service API',
+    'DESCRIPTION': 'Документация для веб приложения find-car-service.ru',
+    'VERSION': '1.0.0',
+    'SWAGGER_UI_DIST': 'SIDECAR',
+    'SWAGGER_UI_FAVICON_HREF': 'SIDECAR',
+    'REDOC_DIST': 'SIDECAR',
+}
+```
+
+Настройка с помощью `@extend_schema`. Большинство случаев кастомизации покрывает декоратор `@extend_schema`.
+
+```python
+@extend_schema(
+    tags=["Автосервисы"],
+    methods=["GET"],
+)
+@extend_schema_view(
+    list=extend_schema(
+        summary="Получить список автосервисов.",
+        description="Получить список автосервисов , param: latitude",
+        tags=["Автосервисы"],
+    ),
+    retrieve=extend_schema(
+        summary="Получить детали автосервиса по id",
+        description="Получить детали автосервиса по id",
+        tags=["Автосервисы"],
+    ),
+)
+class AutoServiceViewSet(
+    viewsets.GenericViewSet, mixins.ListModelMixin, mixins.RetrieveModelMixin
+):
+    """ViewSet для получения списка автосервисов.
+    param: latitude.
+    """
+    ...
+```
+
+С помощью декораторов можно расширить и изменить отображаемую документацию. Для добавления дополнительной информации к методам `list` и `retrieve` используем декоратор `@extend_schema_view`.
+
+> Методы `list` и `retrieve` — стандартные методы, реализованные во встроенных в Django классах `ListModelMixin` и `RetrieveModelMixin`. `list` отвечает за получение списка автосервисов методом GET, а `retrieve` — за получение деталей автосервиса методом GET.
+
+#### ReDoc
+
+ReDoc реализован через библиотеку drf-spectacular.
+
+![ReDoc](img/redoc.png)
+
+Для открытия документации в стиле ReDoc запускаем Docker-контейнер с разработанным приложением. После запуска контейнера переходим на веб-страницу: [https://127.0.0.1:8000/redoc/](https://127.0.0.1:8000/redoc/).
+
+> Подробнее о Docker-контейнерах и их использовании при разработке и развертывании расскажу в следующих главах.
+
+ReDoc не требует дополнительных настроек, так как использует ту-же библиотеку drf-spectacular что и SwaggerUI. Только нужно не забыть добавить рутинги для url ReDoc.
+
+```python
+urlpatterns = [
+    # Объединенный путь для ReDoc
+    path('redoc/', SpectacularRedocView.as_view(url_name='schema'), name='redoc-doc'),
+   url(r'^redoc/$', schema_view.with_ui('redoc', cache_timeout=0),
+       name='schema-redoc'),
+]
+```
+
+### API аутентификации и работы с пользователем
 
 Django поставляется с системой аутентификации пользователей. Она работает с учетными записями пользователей, группами, разрешениями и пользовательскими сессиями на основе cookie. В этом разделе документации рассказывается о том, как работает стандартная реализация из коробки, а также о том, как расширить и настроить ее под нужды вашего проекта.
 Обзор
