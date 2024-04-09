@@ -20,7 +20,7 @@ GitHub профиль автора пояснительной записки к 
 
 Исходный код проекта — в репозитории на GitHub: [find-carservice](https://github.com/GeorgeKuzora/find-carservice).
 
-Текст пояснительной записки можно прочитать на сайте автора [georgiykuzora.ru](https://georgiykuzora.ru/post/diploma-gb/).
+Текст пояснительной записки также можно прочитать на сайте автора [georgiykuzora.ru](https://georgiykuzora.ru/post/diploma-gb/).
 
 ## Вступление
 
@@ -146,7 +146,7 @@ GitHub профиль автора пояснительной записки к 
 curl https://pyenv.run | bash
 ```
 
-> curl - это универсальная утилита командной строки, которая используется для передачи данных с или на сервер. Она поддерживает множество протоколов и может использоваться для выполнения различных задач, таких как загрузка файлов, отправка форм, передача данных в формате HTTP и т.д. Curl также может работать с защищенными соединениями (HTTPS) и поддерживает передачу файлов> большого размера.
+> curl - это универсальная утилита командной строки, которая используется для передачи данных с или на сервер. Она поддерживает множество протоколов и может использоваться для выполнения различных задач, таких как загрузка файлов, отправка форм, передача данных в формате HTTP и т.д. Curl также может работать с защищенными соединениями (HTTPS) и поддерживает передачу файлов большого размера.
 
 Чтобы использовать pyenv, нужно добавить соответствующие конфигурации в файл настроек моей оболочки (shell). Я использую zsh, поэтому файл конфигурации называется `$HOME/.config/zsh/.zshrc`. Нужно добавить в него следующие строки:
 
@@ -1168,14 +1168,14 @@ class CustomUserViewSet(UserViewSet):
 - https://github.com/GeorgeKuzora/find-carservice/tree/main/users
 - https://github.com/GeorgeKuzora/find-carservice/tree/main/api/v1/users
 
-#### Приложение autoservice
+#### Приложение Autoservice
 
 Файлы приложения autoservice расположены в двух директориях:
 
 - https://github.com/GeorgeKuzora/find-carservice/tree/main/autoservice
 - https://github.com/GeorgeKuzora/find-carservice/tree/main/api/v1/autoservice
 
-#### Приложение order
+#### Приложение Order
 
 Файлы приложения order расположены в двух директориях:
 
@@ -1184,16 +1184,151 @@ class CustomUserViewSet(UserViewSet):
 
 ## Тестирование и отладка проекта
 
+### Тестирование
+
+Автоматизированное тестирование - незаменимый инструмент для устранения ошибок в веб-разработке. Набор тестов помогает решать или предотвращать проблемы:
+
+При создании нового кода тесты проверяют его работоспособность.
+При изменении старого кода тесты подтверждают, что изменения не повлияли на работу приложения.
+
+Тестирование веб-приложения на Django сложно из-за многослойной логики: от обработки HTTP-запросов до рендеринга шаблонов. С помощью фреймворка и утилит можно имитировать запросы, вставлять тестовые данные и проверять результаты работы приложения.
+
 ### Тестовый фреймворк django
 
-Автоматизированное тестирование - чрезвычайно полезный инструмент для устранения ошибок для современного веб-разработчика. Вы можете использовать набор тестов - набор тестов - для решения или предотвращения ряда проблем:
+Фреймоворк Django предлагает встроенный модуль для проведения тестирования приложения - `django.test`.
 
-При написании нового кода вы можете использовать тесты для проверки того, что ваш код работает так, как ожидалось.
-При рефакторинге или модификации старого кода вы можете использовать тесты, чтобы убедиться, что внесенные изменения не повлияли на поведение приложения неожиданным образом.
+Модуль тестирования Django построен на основе библиотеки для проведения тестирования `unittest` которая входит в стандартную библиотеку Python.
 
-Тестирование веб-приложения - сложная задача, поскольку веб-приложение состоит из нескольких слоев логики - от обработки запросов на уровне HTTP, проверки и обработки форм до рендеринга шаблонов. С помощью фреймворка Django для тестирования и различных утилит вы можете имитировать запросы, вставлять тестовые данные, проверять результаты работы приложения и вообще проверять, что ваш код делает то, что должен делать.
+#### Структура тестов в Django
 
-Предпочтительным способом написания тестов в Django является использование модуля unittest, встроенного в стандартную библиотеку Python.
+Разработчики Django советуют размещать тестовые файлы внутри пакетов приложений, чтобы не отрывать их от тестируемого кода при повторном использовании и для удобной организации импортов и поиска тестов в файловой структуре приложения.
+
+> Такой же подход к размещению тестов непосредственно внутри пакетов, которые эти тесты тестируют, принят среди разработчиков языка Go и считается стандартным при разработке на нём.
+
+> Альтернативный способ — создать отдельную директорию `tests/` в корне проекта и разместить там все файлы тестов отдельно от исходного кода.
+
+Структура размещения тестов в проекте выглядит так:
+
+```
+order
+├── __init__.py
+├── permissions.py
+├── serializers.py
+├── tests
+    ├── __init__.py
+    ├── setup_test_db.py
+    ├── test_current_user_view.py
+    └── test_order_view.py
+```
+
+В директории `tests` внутри пакета приложения `order` находятся файлы тестов `test_order_view.py` и `test_current_user_view.py`, которые используются для тестирования API представлений. Также имеется файл `setup_test_db.py`, содержащий функции-фикстуры для установки состояния тестовой базы данных перед началом тестирования. Эти функции вынесены в отдельный файл, так как они используются в обоих тестовых файлах.
+
+#### Пример тестирования при помощи django.tests
+
+Цель тестирования: проверить работоспособность представления, возвращающего список заказов пользователя, и наличие необходимых полей для фронтенда в каждом ответе.
+
+Тестовый класс:
+
+```python
+class TestGetAllFieldsFromOrderListAPIView(TestCase):
+    def setUp(self) -> None:
+        db_setup.fill_db_data(test_autoservice_data_path)
+        company = db_setup.get_company(test_order["company"])
+        job = db_setup.get_jobs()
+        autoservice = db_setup.get_autoservice_by_company(company=company)
+
+        self.user = db_setup.get_or_create_user(test_user)
+
+        self.order = db_setup.get_or_create_order(
+            test_order, user=self.user, autoservice=autoservice, job=job
+        )
+
+        self.client = APIClient()
+        self.client.force_authenticate(user=self.user)
+        self.response = self.client.get("/api/v1/orders/", format="json")
+
+    def test_list_api_view_get_status_code_200(self):
+        self.assertEqual(self.response.status_code, status.HTTP_200_OK)
+
+    def test_list_api_view_get_all_fields(self):
+        self.assertEqual(test_order["number_of_fields"], len(self.response.data[0]))
+
+    def test_list_api_view_get_autoservice_name(self):
+        self.assertEqual(
+            test_order["company"], self.response.data[0]["аutoservice_name"]
+        )
+```
+
+Тестовый класс `TestGetAllFieldsFromOrderListAPIView` используется для тестирования запроса `/api/v1/orders/` методом `GET`. Он наследуется от `TestCase` из модуля `django.tests`, предоставляющего функционал для тестирования.
+
+Метод `setUp` выполняется перед каждым тестом. Он реализует структуру AAA (Arrange-Act-Assert): сначала подготавливается начальное состояние, затем выполняется действие, которое нужно протестировать, и, наконец, проверяются результаты или оцениваются изменения окружения после выполнения действия.
+
+1. Установка состояния
+
+```python
+        ...
+        db_setup.fill_db_data(test_autoservice_data_path)
+        company = db_setup.get_company(test_order["company"])
+        job = db_setup.get_jobs()
+        autoservice = db_setup.get_autoservice_by_company(company=company)
+
+        self.user = db_setup.get_or_create_user(test_user)
+
+        self.order = db_setup.get_or_create_order(
+            test_order, user=self.user, autoservice=autoservice, job=job
+        )
+        ...
+```
+
+Здесь мы устанавливаем начальное состояние тестовой базы данных и заполняем её данными, поскольку Django использует отдельную базу данных для каждого теста.
+
+Мы используем вспомогательные функции из `setup_test_db`. Например, функция `fill_db_data` подготавливает базу данных для тестирования.
+
+```python
+def fill_db_data(
+    autoservice_file_path=test_autoservice_data_path,
+    cities_file_path=test_cities_data_path,
+    user_file_path=test_user_data_path,
+):
+    CreateCitiesCommand().handle(cities_file_path)
+    CreateAutoserviciesCommand().handle(autoservice_file_path)
+    CreateUsersCommand().handle(user_file_path)
+```
+
+Команды `CreateCitiesCommand`, `CreateAutoserviciesCommand`, `CreateUsersCommand` используются для заполнения базы данных тестовыми данными.
+
+2. Выполнение действия
+
+```python
+        ...
+        self.client = APIClient()
+        self.client.force_authenticate(user=self.user)
+        self.response = self.client.get("/api/v1/orders/", format="json")
+        ...
+```
+
+Мы следуем принципу разделения подготовки, действия и проверки (Arrange-Act-Assert), перемещая создание запроса в метод `setUp`, а не в методы, где происходит проверка результатов запроса, которые представлены в виде HTTP-ответа в переменной `self.response`.
+
+Используем предоставленный тестовой библиотекой тестовый клиент `APIClient` для создания запроса к эндпоинту API `/api/v1/orders/`. С помощью метода `force_authenticate` имитируем вход пользователя в систему, поскольку данный эндпоинт требует аутентификации перед отправкой запроса.
+
+3. Проверка результатов
+
+```python
+    ...
+    def test_list_api_view_get_status_code_200(self):
+        self.assertEqual(self.response.status_code, status.HTTP_200_OK)
+
+    def test_list_api_view_get_all_fields(self):
+        self.assertEqual(test_order["number_of_fields"], len(self.response.data[0]))
+
+    def test_list_api_view_get_autoservice_name(self):
+        self.assertEqual(
+            test_order["company"], self.response.data[0]["аutoservice_name"]
+        )
+    ...
+```
+
+В отдельных методах проверки мы сравниваем поля ответа с ожидаемыми значениями.
 
 ### Тестирование API
 
