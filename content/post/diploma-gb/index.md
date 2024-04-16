@@ -2332,8 +2332,9 @@ jobs:
 ### Где искать проект
 
 - GitHub профиль автора пояснительной записки к дипломному проекту — [GeorgeKuzora](https://github.com/GeorgeKuzora)
-- Исходный код проекта — в репозитории на GitHub: [find-carservice](https://github.com/GeorgeKuzora/find-carservice).
-- Текст пояснительной записки также можно прочитать на сайте автора [georgiykuzora.ru](https://georgiykuzora.ru/post/diploma-gb/).
+- Исходный код проекта — в репозитории на GitHub - [find-carservice](https://github.com/GeorgeKuzora/find-carservice).
+- Текст пояснительной записки также можно прочитать на сайте автора - [georgiykuzora.ru](https://georgiykuzora.ru/post/diploma-gb/).
+- Оригинальная рукопись пояснительной записки в формате Markdown - [Рукопись](https://github.com/GeorgeKuzora/my_hugo_site/blob/main/content/post/diploma-gb/index.md)
 
 ### Использованные материалы
 
