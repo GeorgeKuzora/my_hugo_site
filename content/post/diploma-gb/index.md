@@ -64,7 +64,7 @@ draft: false
 
 #### Backend репозиторий проекта
 
-Бэкенд репозиторий проекта расположен на GitHub по адресу - [https://github.com/GeorgeKuzora/find-carservice](https://github.com/car-service-with-geolocation/backend)
+Бэкенд репозиторий проекта расположен на GitHub по адресу - [https://github.com/GeorgeKuzora/find-carservice](https://github.com/GeorgeKuzora/find-carservice)
 
 Так как моей специализацией является бэкенд разработка на Python это репозиторий где я работал.
 
@@ -2505,10 +2505,10 @@ jobs:
 
 ### Где искать проект
 
-- Исходный код проекта — в репозитории на GitHub - [find-carservice](https://github.com/GeorgeKuzora/find-carservice).
-- GitHub профиль автора пояснительной записки к дипломному проекту — [GeorgeKuzora](https://github.com/GeorgeKuzora).
-- Текст пояснительной записки также можно прочитать на сайте автора - [gkuzora.ru](https://gkuzora.ru/post/diploma-gb/).
-- Оригинальная рукопись пояснительной записки в формате Markdown - [Рукопись](https://github.com/GeorgeKuzora/my_hugo_site/blob/main/content/post/diploma-gb/index.md).
+- Исходный код проекта — в репозитории на GitHub - [https://github.com/GeorgeKuzora/find-carservice](https://github.com/GeorgeKuzora/find-carservice).
+- GitHub профиль автора пояснительной записки к дипломному проекту — [https://github.com/GeorgeKuzora](https://github.com/GeorgeKuzora).
+- Текст пояснительной записки также можно прочитать на сайте автора - [https://gkuzora.ru/post/diploma-gb/](https://gkuzora.ru/post/diploma-gb/).
+- Оригинальная рукопись пояснительной записки в формате Markdown - [https://github.com/GeorgeKuzora/my_hugo_site/blob/main/content/post/diploma-gb/index.md](https://github.com/GeorgeKuzora/my_hugo_site/blob/main/content/post/diploma-gb/index.md).
 
 ### Использованные материалы
 
