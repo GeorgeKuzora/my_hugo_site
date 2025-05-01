@@ -7,7 +7,6 @@ copyright = "Georgiy Kuzora ©"
 disqusShortname = ""
 googleAnalytics = ""
 preserveTaxonomyNames = true
-paginate = 5 #frontpage pagination
 hasCJKLanguage = true
 
 [outputs]

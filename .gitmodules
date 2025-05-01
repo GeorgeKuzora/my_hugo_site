@@ -1,3 +1,9 @@
 [submodule "themes/hugo-theme-cleanwhite"]
 	path = themes/hugo-theme-cleanwhite
 	url = https://github.com/GeorgeKuzora/hugo-theme-cleanwhite.git
+[submodule "themes/hugo-profile"]
+	path = themes/hugo-profile
+	url = https://github.com/GeorgeKuzora/hugo-profile.git
+[submodule "themes/rusty-typewriter"]
+	path = themes/rusty-typewriter
+	url = https://github.com/math-queiroz/rusty-typewriter.git
