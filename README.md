@@ -1,11 +1,9 @@
 # Проект личного сайта
 
-![Мой персональный сайт](content/post/personal-site-project/mysite.webp)
-
 ## Общая информация
 
-Сайт размещен по адресу - [Georgiy Kuzora](https://georgiykuzora.ru/)
-Страница описания проекта - [Описание проекта](https://georgiykuzora.ru/post/personal-site-project/)
+Сайт размещен по адресу - [Georgiy Kuzora](https://gkuzora.ru/)
+Страница описания проекта - [Описание проекта](https://georgiykuzora.ru/posts/personal-site-project/)
 
 Это проект личного сайта. Сайт включает:
 
@@ -15,9 +13,9 @@
 
 ## Создание сайта
 
-Для создания сайта я использовал генератор статичных страниц [Hugo](https://gohugo.io/). В качестве основной темы сайта выбрана тема [CleanWhite](https://github.com/GeorgeKuzora/hugo-theme-cleanwhite). Для того чтобы можно было легко изменять базовые параметры темы сайта, я сделал форк оригинального проекта темы и внес в него некоторые изменения.
+Для создания сайта я использовал генератор статичных страниц [Hugo](https://gohugo.io/).
 
-[В этой статье](https://georgiykuzora.ru/post/hugo_basic/) я описал основные этапы работы над сайтом при помощи Hugo.
+[В этой статье](https://georgiykuzora.ru/posts/hugo_basic/) я описал основные этапы работы над сайтом при помощи Hugo.
 
 ## Публикация сайта
 
