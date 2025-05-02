@@ -7,3 +7,6 @@
 [submodule "themes/rusty-typewriter"]
 	path = themes/rusty-typewriter
 	url = https://github.com/math-queiroz/rusty-typewriter.git
+[submodule "themes/risotto"]
+	path = themes/risotto
+	url = git@github.com:GeorgeKuzora/risotto.git
