@@ -65,6 +65,11 @@ theme = "hugo-blog-awesome"
   url = '/posts/'
   weight = 20
 [[menu.main]]
+  pageRef="projects"
+  name = 'Projects'
+  url = '/projects/'
+  weight = 21
+[[menu.main]]
   pageRef="about"
   name = 'About'
   url = '/about/'
@@ -77,7 +82,7 @@ theme = "hugo-blog-awesome"
   # the default value is set to 'auto'.
   # You can take a look at layouts/index.html for more information.
   description = "Software engineer"
-  mainSections = ['posts']
+  mainSections = ['posts', 'projects']
   toc = true # set to false to disable table of contents 'globally'
   tocOpen = false # set to true to open table of contents by default
   goToTop = true # set to false to disable 'go to top' button
