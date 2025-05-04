@@ -101,8 +101,8 @@ theme = "hugo-blog-awesome"
 [params.author]
   avatar = "avatar.webp" # put the file in assets folder; also ensure that image has same height and width
   # Note: image is not rendered if the resource(avatar image) is not found. No error is displayed.
-  intro = "Georgiy Kuzora"
   name = "Georgiy Kuzora"
+  intro = "Georgiy Kuzora"
   description = "Software engineer"
 
 # Allow to override webmanifest options
