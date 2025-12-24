@@ -1,3 +1,3 @@
-[submodule "themes/hugo-blog-awesome"]
-	path = themes/hugo-blog-awesome
-	url = git@github.com:GeorgeKuzora/hugo-blog-awesome.git
+[submodule "themes/risotto"]
+	path = themes/risotto
+	url = git@github.com:GeorgeKuzora/risotto.git
