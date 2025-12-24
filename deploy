@@ -7,8 +7,3 @@ hugo && \
 
 echo "DEPLOY SITE" && \
 rsync -rva --delete public/ cc64867@georgiykuzora.ru:/home/c/cc64867/public_html/ && \
-
-echo "BACKUP CONTENT ON GITHUB" && \
-git add . && \
-git commit -m "new content" && \
-git push
