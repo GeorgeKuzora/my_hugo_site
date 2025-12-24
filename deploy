@@ -6,4 +6,4 @@ echo "HUGO COMPILE" && \
 hugo && \
 
 echo "DEPLOY SITE" && \
-rsync -rva --delete public/ cc64867@georgiykuzora.ru:/home/c/cc64867/public_html/ && \
+rsync -rva --delete public/ cc64867@georgiykuzora.ru:/home/c/cc64867/public_html/
