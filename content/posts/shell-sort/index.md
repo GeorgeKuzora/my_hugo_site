@@ -7,6 +7,7 @@ author:      "Георгий Кузора"
 image:       "img/shell_sort.jpg"
 tags:        ["Sort", "Algorithm", "Coding", "CS"]
 categories:  ["Tech"]
+toc:         true
 draft:       false
 ---
 ## Что такое сортировка Шелла

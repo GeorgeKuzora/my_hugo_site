@@ -7,6 +7,7 @@ author:      "Георгий Кузора"
 image:       "img/fog_forest.jpg"
 tags:        ["Nix", "Linux", "Coding"]
 categories:  ["Tech"]
+toc:         true
 draft:       false
 ---
 

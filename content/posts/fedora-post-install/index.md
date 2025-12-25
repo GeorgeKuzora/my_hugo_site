@@ -7,6 +7,7 @@ author: "Георгий Кузора"
 image: "img/bkg3.png"
 tags: ["linux", "fedora", "OS", "gnome"]
 categories: ["Tech"]
+toc: true
 draft: false
 ---
 

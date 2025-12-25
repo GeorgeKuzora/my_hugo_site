@@ -7,6 +7,7 @@ author:      "Георгий Кузора"
 image:       "img/wrong_things_lang.jpg"
 tags:        ["Language learning", "Japanese", "Foreign languages", "Metalearning"]
 categories:  ["languages"]
+toc:         true
 draft:       false
 ---
 ## Вступление

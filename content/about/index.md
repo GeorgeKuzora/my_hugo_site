@@ -8,6 +8,7 @@ author: "Георгий Кузора"
 image: ""
 tags: ["About"]
 categories: ["About"]
+toc: true
 draft: false
 ---
 Меня зовут Георгий Кузора. Я занимаюсь разработкой программного обеспечения.

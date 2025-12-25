@@ -7,6 +7,7 @@ author:      "Георгий Кузора"
 image:       "img/vim_pros.png"
 tags:        ["Vim", "Tools", "Coding", "IDE"]
 categories:  ["Tech"]
+toc:         true
 draft:       false
 ---
 ## Введение

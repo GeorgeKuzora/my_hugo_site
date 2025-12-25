@@ -7,6 +7,7 @@ author:      "Георгий Кузора"
 image:       "img/python-protocols.jpg"
 tags:        ["Python", "Coding", "OOP", "Types"]
 categories:  ["Tech"]
+toc:         true
 draft:       false
 ---
 

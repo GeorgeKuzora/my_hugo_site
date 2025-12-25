@@ -7,6 +7,7 @@ author:      "Георгий Кузора"
 image:       "img/fog_forest.jpg"
 tags:        ["Разум", "Саморазвитие"]
 categories:  ["Philosophy"]
+toc:         true
 draft:       false
 ---
 

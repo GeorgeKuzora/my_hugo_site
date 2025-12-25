@@ -7,6 +7,7 @@ author:      "Георгий Кузора"
 image:       "img/fog_forest.jpg"
 tags:        ["Coding", "Development"]
 categories:  ["Tech"]
+toc:         true
 draft:       false
 ---
 

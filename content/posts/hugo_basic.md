@@ -8,6 +8,7 @@ author:      "Георгий Кузора"
 image:       "img/hugo_basic.webp"
 tags:        ["Hugo", "Web", "Golang", "Devops"]
 categories:  ["Tech"]
+toc:         true
 draft:       false
 ---
 ## Что такое Hugo

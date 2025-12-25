@@ -7,6 +7,7 @@ author:      "Георгий Кузора"
 image:       "img/bkg3.png"
 tags:        ["Linux", "Bash", "Loging", "Testing"]
 categories:  ["Tech"]
+toc:         true
 draft:       false
 ---
 ## Какие варианты дебагинга существуют

@@ -7,6 +7,7 @@ author:      "Георгий Кузора"
 image:       "img/web.webp"
 tags:        ["Web", "Hugo", "HTML", "CSS"]
 categories:  ["Projects"]
+toc:         true
 draft:       false
 ---
 

@@ -8,6 +8,7 @@ author:      "Георгий Кузора"
 image:       "img/jap.jpg"
 tags:        ["Language-learning", "Japanese", "Japan", "Culture"]
 categories:  ["Languages"]
+toc:         true
 draft:       false
 ---
 ## Вступление

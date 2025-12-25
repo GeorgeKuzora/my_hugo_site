@@ -7,6 +7,7 @@ author:      "Георгий Кузора"
 image:       "img/bkg3.png"
 tags:        ["Coding", "Algorithms", "CS", "Dynamic Programming"]
 categories:  ["Tech"]
+toc:         true
 draft:       false
 ---
 

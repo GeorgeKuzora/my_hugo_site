@@ -1,4 +1,5 @@
 ---
+layout: page
 title: "Управление окружением через chezmoi и brew"
 subtitle: ""
 description: "С chezmoi я поддерживаю разные конфиги для дома и работы через шаблоны, а всё ПО ставлю единообразно — при помощи brew и на Mac, и на Linux."
@@ -7,6 +8,7 @@ author: "Георгий Кузора"
 image: "img/fog_forest.jpg"
 tags: ["Coding", "Development", "Dotfiles"]
 categories: ["Tech"]
+toc: true
 draft: false
 ---
 

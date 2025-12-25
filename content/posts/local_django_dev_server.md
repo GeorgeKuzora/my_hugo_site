@@ -7,6 +7,7 @@ author: "Георгий Кузора"
 image: "img/bkg3.png"
 tags: ["linux", "python", "docker", "django"]
 categories: ["Tech"]
+toc: true
 draft: false
 ---
 

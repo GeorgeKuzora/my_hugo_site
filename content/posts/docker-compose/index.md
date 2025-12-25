@@ -7,6 +7,7 @@ author:      "Георгий Кузора"
 image:       "img/bkg3.png"
 tags:        ["docker", "linux", "containers", "DevOps"]
 categories:  ["Tech"]
+toc:         true
 draft:       false
 ---
 ## Введение

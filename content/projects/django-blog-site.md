@@ -7,6 +7,7 @@ author:      "Георгий Кузора"
 image:       "img/bkg3.png"
 tags:        ["Python", "Django", "API", "Web"]
 categories:  ["Projects"]
+toc:         true
 draft:       false
 ---
 

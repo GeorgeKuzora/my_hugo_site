@@ -7,6 +7,7 @@ author:      "Георгий Кузора"
 image:       "img/merge-sort.png"
 tags:        ["Sort", "Algorithm", "Coding", "CS"]
 categories:  ["Tech"]
+toc:         true
 draft:       false
 ---
 ## Что такое быстрая сортировка

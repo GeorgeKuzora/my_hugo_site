@@ -7,6 +7,7 @@ author:      "Георгий Кузора"
 image:       "img/nginx_basic.webp"
 tags:        ["Nginx", "Apache2", "Linux", "Server", "PHP", "HTTP"]
 categories:  ["Tech"]
+toc:         true
 draft:       false
 ---
 ## Установка Nginx и настройка работы с PHP-FPM

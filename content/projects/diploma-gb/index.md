@@ -7,6 +7,7 @@ author: "Георгий Кузора"
 image: "img/fog_forest.jpg"
 tags: ["python", "django", "linux", "docker"]
 categories: ["Tech", "Projects"]
+toc: true
 draft: false
 ---
 

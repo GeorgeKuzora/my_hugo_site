@@ -7,6 +7,7 @@ author:      "Георгий Кузора"
 image:       "img/lang_courses.jpg"
 tags:        ["Language learning", "Foreign languages", "Metalearning", "Courses"]
 categories:  ["Languages"]
+toc:         true
 draft:       false
 ---
 ## Мой опыт

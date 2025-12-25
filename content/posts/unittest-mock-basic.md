@@ -7,6 +7,7 @@ author:      "Георгий Кузора"
 image:       "img/unittest_mock_basic.png"
 tags:        ["Python", "Unittest", "Coding", "Mock"]
 categories:  ["Tech"]
+toc:         true
 draft:       false
 ---
 ## Варианты использования

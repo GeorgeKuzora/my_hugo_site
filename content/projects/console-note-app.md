@@ -7,6 +7,7 @@ author:      "Георгий Кузора"
 image:       "img/terminal_cli.webp"
 tags:        ["Python", "CLI", "Project", "json"]
 categories:  ["Projects"]
+toc:         true
 draft:       false
 ---
 ## Общая информация
